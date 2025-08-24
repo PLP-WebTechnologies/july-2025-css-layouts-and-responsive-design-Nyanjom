@@ -1,0 +1,125 @@
+/* --- Global Styles and Typography --- */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+h2 {
+    color: #555;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem;
+}
+
+section {
+    padding: 2rem;
+    margin: 1rem auto;
+    background: #fff;
+    max-width: 1000px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* --- Flexbox for Navigation (1D Layout) --- */
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Makes the list items a flex container */
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    justify-content: center; /* Horizontally centers the items */
+    gap: 1.5rem; /* Adds space between list items */
+}
+
+nav li {
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+}
+
+nav li:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+
+/* --- CSS Grid for Main Layout (2D Layout) --- */
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-columns: 1fr; /* Single column for mobile view */
+}
+/* Tablet View: Screens from 768px and up */
+@media (min-width: 768px) {
+    /* Adjusts the navigation bar alignment */
+    nav ul {
+        justify-content: flex-end; /* Aligns nav items to the right */
+        gap: 2rem;
+        padding-right: 2rem;
+    }
+
+    header nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+    }
+}
+
+/* Desktop View: Screens from 1024px and up */
+@media (min-width: 1024px) {
+    /* Adjusts the grid for a two-column layout if you add a sidebar */
+    .grid-container {
+        grid-template-areas:
+            "header header"
+            "nav nav"
+            "content sidebar"
+            "footer footer";
+        grid-template-columns: 2fr 1fr; /* Example: Content is 2/3, sidebar is 1/3 */
+    }
+
+    /* Increases font sizes and padding for a better desktop experience */
+    h1 {
+        font-size: 3rem;
+    }
+
+    section {
+        padding: 3rem;
+    }
+}
